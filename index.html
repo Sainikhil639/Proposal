@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Love Proposal</title>
     <style>
         body {
@@ -15,6 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 30px;
         }
 
         button {
@@ -64,7 +66,7 @@
 
         .Greenbutton:after {
             background-clip: padding-box;
-            background-color: #12aa24;
+            background-color: #0cb420;
             border: solid transparent;
             border-radius: 16px;
             border-width: 0 0 4px;
@@ -107,6 +109,10 @@
             display: none;
             padding: 20px;
             position: relative;
+            width: 50%;
+            height: 50%;
+            max-width: 500px;
+            max-height: 500px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -117,6 +123,15 @@
             margin: 10px;
             font-size: 16px;
             cursor: pointer;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bolder;
+            color: #ff1212 ;
+            -webkit-text-stroke: 1px #000000;
+            text-shadow: 2px 2px 0 #0000001e, 3px 3px 0 #0000001e, 4px 4px 0 #0000001e;
+            font-family:'Great Vibes',cursive !important;
         }
     </style>
 </head>
@@ -163,7 +178,10 @@
             <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-4.gif"
                 class="position-absolute w-100 h-100" style="object-fit: cover; height: 300px;">
         </div>
-        <h2>I love you forever...</h2>
+        <h1>I Love You Forever...
+            <i class="fa fa-heart" style="color: red;" aria-hidden="true"></i>
+            <i class="fa fa-heart" style="color: rgb(255, 242, 0);" aria-hidden="true"></i>
+        </h1>
     </div>
     <script>
         var currentSlide = 0;
