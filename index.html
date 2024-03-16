@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .slide {
+            display: none;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slide0" class="slide">
+        <h2>Hello</h2>
+        <button onclick="showSlide(1)">Enter</button>
+    </div>
+    <div id="slide1" class="slide">
+        <h2>Do you love me?</h2>
+        <button onclick="response('yes')">Yes</button>
+        <button onclick="response('no')">No</button>
+    </div>
+    <div id="slide2" class="slide">
+        <h2>I love you so much, please accept my love...</h2>
+        <button onclick="response('yes')">Yes</button>
+        <button onclick="response('no')">No</button>
+    </div>
+    <div id="slide3" class="slide">
+        <h2>I love you very very much, please accept my love...</h2>
+        <button id="noButton" onclick="response('no')">No</button>
+        <button onclick="response('yes')">Yes</button>
+    </div>
+    <div id="slide4" class="slide">
+        <h2>I love you forever...</h2>
+    </div>
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(slideNumber) {
+            if (slideNumber === 1) {
+                enterFullScreen();
+            }
+            if (slideNumber === 4) {
+                exitFullScreen();
+            }
+            document.querySelectorAll('.slide').forEach(function (slide) {
+                slide.style.display = 'none';
+            });
+            document.getElementById('slide' + slideNumber).style.display = 'block';
+            currentSlide = slideNumber; // Update currentSlide
+        }
+
+        function response(answer) {
+            if (currentSlide === 1) {
+                if (answer === 'yes') {
+                    showSlide(4);
+                    return;
+                }
+                showSlide(2);
+            } else if (currentSlide === 2) {
+                if (answer === 'yes') {
+                    showSlide(4);
+                    return;
+                }
+                showSlide(3);
+            } else if (currentSlide === 3) {
+                if (answer === 'yes') {
+                    showSlide(4);
+                    return;
+                }
+                var noButton = document.getElementById('noButton');
+                noButton.style.position = 'absolute';
+                var counter = 0;
+
+                function changePosition() {
+                    if (counter < 1000) {
+                        var randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+                        var randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+                        noButton.style.left = randomX + 'px';
+                        noButton.style.top = randomY + 'px';
+                        counter++;
+                        setTimeout(changePosition, 2000); // Change position every 1000ms
+                    }
+                }
+
+                changePosition();
+            }
+        }
+
+        function enterFullScreen() {
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function exitFullScreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+
+        showSlide(0);
+    </script>
+</body>
+
+</html>
