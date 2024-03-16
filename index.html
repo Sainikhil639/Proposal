@@ -10,12 +10,41 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: rgb(255, 76, 76);
+            background-color: #000000;
             max-height: 100vh;
             max-width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+            position: relative; /* Make the body the container for absolute positioned elements */
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            border: none;
+            color: transparent;
+            animation: float 15s linear infinite;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(200%);
+            }
+            100% {
+                transform: translateY(-200%);
+            }
         }
 
         button {
@@ -97,7 +126,6 @@
             background: none;
         }
 
-
         img {
             position: relative;
             z-index: 1;
@@ -112,6 +140,7 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         button {
@@ -124,17 +153,17 @@
         h1 {
             font-size: 36px;
             font-weight: bolder;
-            color: #ff1212 ;
+            color: #ff1212;
             -webkit-text-stroke: 1px #000000;
             text-shadow: 2px 2px 0 #0000001e, 3px 3px 0 #0000001e, 4px 4px 0 #0000001e;
-            font-family:'Great Vibes',cursive !important;
+            font-family: 'Great Vibes', cursive !important;
         }
     </style>
 </head>
 
 <body>
     <div id="slide0" class="slide">
-        <h2>Hello...<br>Do you want to Listen one Secrect ?</h2>
+        <h2>Hello...<br>Do you want to Listen one Secret ?</h2>
         <div class="col-md-6 p-0">
             <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-0.gif"
                 class="position-absolute w-100 h-100" style="object-fit: cover; height: 300px;">
@@ -179,6 +208,7 @@
             <i class="fa fa-heart" style="color: rgb(255, 242, 0);" aria-hidden="true"></i>
         </h1>
     </div>
+
     <script>
         var currentSlide = 0;
         var inFullScreenMode = false;
@@ -276,5 +306,26 @@
                 alert("Please use the provided buttons to navigate.");
             }
         });
+
+        // Function to create a heart element
+        function createHeart() {
+            const heart = document.createElement('i');
+            heart.classList.add('fa', 'fa-heart', 'heart');
+            // Randomly assign red or yellow color to the heart
+            if (Math.random() > 0.5) {
+                heart.classList.add('red');
+            } else {
+                heart.classList.add('yellow');
+            }
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(heart);
+        }
+        // Create multiple hearts
+        for (let i = 0; i < 70; i++) {
+            createHeart();
+        }
     </script>
 </body>
+
+</html>
