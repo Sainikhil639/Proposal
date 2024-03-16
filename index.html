@@ -27,8 +27,9 @@
 
 <body>
     <div id="slide0" class="slide">
-        <h2>Hello</h2>
-        <button onclick="showSlide(1)">Enter</button>
+        <h2>Hello...<br>Do you want to Listen one Secrect ?</h2>
+        <button onclick="showSlide(1)">Yes</button>
+        <button onclick="alertMessage()">No</button>
     </div>
     <div id="slide1" class="slide">
         <h2>Do you love me?</h2>
@@ -50,6 +51,7 @@
     </div>
     <script>
         var currentSlide = 0;
+        var inFullScreenMode = false;
 
         function showSlide(slideNumber) {
             if (slideNumber === 1) {
@@ -111,6 +113,7 @@
             } else if (elem.msRequestFullscreen) {
                 elem.msRequestFullscreen();
             }
+            inFullScreenMode = true;
         }
 
         function exitFullScreen() {
@@ -121,9 +124,22 @@
             } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
             }
+            inFullScreenMode = false;
         }
 
         showSlide(0);
+
+        function alertMessage() {
+            alert("Please Click on Yes... I'm Waiting for your Response..")
+        }
+
+        // Disable back button functionality in full-screen mode
+        window.addEventListener('popstate', function (event) {
+            if (inFullScreenMode) {
+                history.pushState(null, null, location.href);
+                alert("Please use the provided buttons to navigate.");
+            }
+        });
     </script>
 </body>
 
