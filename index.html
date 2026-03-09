@@ -1,281 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikhil ❤️ Anu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil ❤️ Anu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-<style>
+        .slide {
+            display: none;
+            padding: 25px;
+            background: #00797d;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            color: white;
+            z-index: 10;
+            max-width: 90%;
+        }
 
-body{
-margin:0;
-padding:0;
-font-family:Arial;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-}
+        .name {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            animation: float 15s linear infinite;
+            white-space: nowrap;
+        }
 
-/* Slides */
+        @keyframes float {
+            0% {
+                transform: translateY(100vh)
+            }
 
-.slide{
-display:none;
-padding:25px;
-background:#00797d;
-border-radius:15px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-color:white;
-z-index:10;
-max-width:90%;
-}
+            100% {
+                transform: translateY(-100vh)
+            }
+        }
 
-/* Floating names */
+        .petal {
+            position: absolute;
+            color: red;
+            font-size: 18px;
+            animation: fall 10s linear infinite;
+        }
 
-.name{
-position:absolute;
-font-size:18px;
-font-weight:bold;
-animation:float 15s linear infinite;
-white-space:nowrap;
-}
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh)
+            }
+            100% {
+                transform: translateY(110vh)
+            }
+        }
 
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-100vh)}
-}
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-/* Falling petals */
+        .yes {
+            background: #16a34a;
+            color: white;
+        }
 
-.petal{
-position:absolute;
-color:red;
-font-size:18px;
-animation:fall 10s linear infinite;
-}
+        .no {
+            background: #b91c1c;
+            color: white;
+        }
 
-@keyframes fall{
-0%{transform:translateY(-10vh)}
-100%{transform:translateY(110vh)}
-}
+        img {
+            max-height: 250px;
+            margin: 10px;
+            border-radius: 10px;
+        }
 
-/* Buttons */
+        .final {
+            font-size: 38px;
+            color: #ff0000;
+            text-shadow: 0 0 15px pink;
+            animation: glow 1.5s infinite alternate;
+        }
 
-button{
-padding:12px 20px;
-margin:10px;
-border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.yes{
-background:#16a34a;
-color:white;
-}
-
-.no{
-background:#b91c1c;
-color:white;
-}
-
-/* Images */
-
-img{
-max-height:250px;
-margin:10px;
-border-radius:10px;
-}
-
-/* Final message */
-
-.final{
-font-size:38px;
-color:#ff0000;
-text-shadow:0 0 15px pink;
-animation:glow 1.5s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px pink}
-to{text-shadow:0 0 25px red}
-}
-
-</style>
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px pink
+            }
+            to {
+                text-shadow: 0 0 25px red
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-<!-- Romantic Music -->
-
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b0f6c46c3.mp3">
-</audio>
-
-<!-- Slide 0 -->
-
-<div id="slide0" class="slide">
-<h2>Hello Anu 💖<br>Do you want to hear a secret?</h2>
-
-<img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-0.gif">
-
-<br>
-
-<button class="yes" onclick="showSlide(1)">Yes</button>
-<button class="no" onclick="alert('Please click Yes... I'm waiting ❤️')">No</button>
-
-</div>
-
-<!-- Slide 1 -->
-
-<div id="slide1" class="slide">
-<h2>Anu... Do you love me? ❤️</h2>
-
-<img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-1.gif">
-
-<br>
-
-<button class="yes" onclick="response('yes')">Yes</button>
-<button class="no" onclick="response('no')">No</button>
-
-</div>
-
-<!-- Slide 2 -->
-
-<div id="slide2" class="slide">
-<h2>I love you so much Anu... Please accept my love 💖</h2>
-
-<img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-2.gif">
-
-<br>
-
-<button class="yes" onclick="showSlide(4)">Yes</button>
-<button class="no" onclick="showSlide(3)">No</button>
-
-</div>
-
-<!-- Slide 3 -->
-
-<div id="slide3" class="slide">
-<h2>I love you very very much... Please say Yes ❤️</h2>
-
-<img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/silde-3.gif">
-
-<br>
-
-<button class="yes" onclick="showSlide(4)">Yes</button>
-<button class="no" id="noBtn" onmouseover="moveButton()">No</button>
-
-</div>
-
-<!-- Final Slide -->
-
-<div id="slide4" class="slide">
-
-<img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-4.gif">
-
-<h1 class="final">
-
-Nikhil ❤️ Anu Forever
-
-</h1>
-
-</div>
-
-<script>
-
-let currentSlide=0
-
-function showSlide(n){
-
-document.querySelectorAll(".slide").forEach(s=>s.style.display="none")
-
-document.getElementById("slide"+n).style.display="block"
-
-currentSlide=n
-
-}
-
-showSlide(0)
-
-/* response logic */
-
-function response(ans){
-
-if(currentSlide===1 && ans==="yes"){
-
-showSlide(4)
-
-}else{
-
-showSlide(2)
-
-}
-
-}
-
-/* running no button */
-
-function moveButton(){
-
-let btn=document.getElementById("noBtn")
-
-btn.style.position="absolute"
-
-btn.style.left=Math.random()*80+"vw"
-
-btn.style.top=Math.random()*80+"vh"
-
-}
-
-/* floating names */
-
-function createName(){
-
-let el=document.createElement("div")
-
-el.className="name"
-
-el.innerHTML='<span style="color:red;">Nikhil</span> ❤️ <span style="color:black;">Anu</span>'
-
-el.style.left=Math.random()*100+"vw"
-
-el.style.animationDuration=(10+Math.random()*10)+"s"
-
-document.body.appendChild(el)
-
-}
-
-for(let i=0;i<50;i++) createName()
-
-/* falling petals */
-
-function createPetal(){
-
-let p=document.createElement("div")
-
-p.className="petal"
-
-p.innerHTML="🌹"
-
-p.style.left=Math.random()*100+"vw"
-
-p.style.animationDuration=(6+Math.random()*5)+"s"
-
-document.body.appendChild(p)
-
-}
-
-for(let i=0;i<30;i++) createPetal()
-
-</script>
-
+    <audio id="bgMusic" loop>
+        <source src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/Love.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div id="slide0" class="slide">
+        <h2>Hello Anu 💖<br>Do you want to hear a secret?</h2>
+        <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-0.gif">
+        <br>
+        <button class="yes" onclick="showSlide(1); startMusic(); ">Yes</button>
+        <button class="no" onclick="alert('Please click Yes... I'm waiting ❤️')">No</button>
+    </div>
+
+    <!-- Slide 1 -->
+    <div id="slide1" class="slide">
+        <h2>Anu... Do you love me? ❤️</h2>
+        <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-1.gif">
+        <br>
+        <button class="yes" onclick="response('yes')">Yes</button>
+        <button class="no" onclick="response('no')">No</button>
+    </div>
+
+    <!-- Slide 2 -->
+    <div id="slide2" class="slide">
+        <h2>I love you so much Anu... Please accept my love 💖</h2>
+        <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-2.gif">
+        <br>
+        <button class="yes" onclick="showSlide(4)">Yes</button>
+        <button class="no" onclick="showSlide(3)">No</button>
+    </div>
+
+    <!-- Slide 3 -->
+    <div id="slide3" class="slide">
+        <h2>I love you very very much... Please say Yes ❤️</h2>
+        <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/silde-3.gif">
+        <br>
+        <button class="yes" onclick="showSlide(4)">Yes</button>
+        <button class="no" id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+
+    <!-- Final Slide -->
+    <div id="slide4" class="slide">
+        <img src="https://raw.githubusercontent.com/Sainikhil639/Proposal/main/slide-4.gif">
+        <h1 class="final">
+            Nikhil ❤️ Anu Forever
+        </h1>
+    </div>
+
+    <script>
+
+        function startMusic() {
+            let music = document.getElementById("bgMusic");
+            music.play();
+        }
+
+        let currentSlide = 0
+
+        function showSlide(n) {
+            document.querySelectorAll(".slide").forEach(s => s.style.display = "none")
+            document.getElementById("slide" + n).style.display = "block"
+            currentSlide = n
+        }
+        showSlide(0)
+
+        function response(ans) {
+            if (currentSlide === 1 && ans === "yes") {
+                showSlide(4)
+            } else {
+                showSlide(2)
+            }
+        }
+
+        function moveButton() {
+            let btn = document.getElementById("noBtn")
+            btn.style.position = "absolute"
+            btn.style.left = Math.random() * 80 + "vw"
+            btn.style.top = Math.random() * 80 + "vh"
+        }
+
+        function createName() {
+            let el = document.createElement("div")
+            el.className = "name"
+            el.innerHTML = '<span style="color:red;">Nikhil</span> ❤️ <span style="color:black;">Anu</span>'
+            el.style.left = Math.random() * 100 + "vw"
+            el.style.animationDuration = (10 + Math.random() * 10) + "s"
+            document.body.appendChild(el)
+        }
+
+        for (let i = 0; i < 50; i++) createName()
+
+        function createPetal() {
+            let p = document.createElement("div")
+            p.className = "petal"
+            p.innerHTML = "🌹"
+            p.style.left = Math.random() * 100 + "vw"
+            p.style.animationDuration = (6 + Math.random() * 5) + "s"
+            document.body.appendChild(p)
+        }
+
+        for (let i = 0; i < 30; i++) createPetal()
+
+    </script>
 </body>
 </html>
